@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CCE-GenAI: Generative AI course resources by Dr. Prathosh A.P., IISc Bengaluru. Notes, lectures, playlists, and reading list.">
+  <title>CCE-GenAI | Dr. Prathosh A.P.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 2.5rem;
+    }
+    .resource-card {
+      background: var(--white);
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      text-decoration: none !important;
+    }
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--navy-light);
+    }
+    .resource-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .resource-type {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber-dark);
+    }
+    .resource-title {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: bold;
+      margin: 0;
+      line-height: 1.35;
+    }
+    .resource-desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .82rem;
+      color: var(--text-light);
+      margin: 0;
+      flex: 1;
+    }
+    .resource-link-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--navy-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: auto;
+    }
+    /* Card accent colors by type */
+    .card-youtube { border-top: 4px solid #ff0000; }
+    .card-drive   { border-top: 4px solid #4285f4; }
+    .card-form    { border-top: 4px solid #34a853; }
+    .card-wa      { border-top: 4px solid #25d366; }
+
+    .reading-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .book-icon {
+      font-size: 3rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .reading-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .4rem;
+    }
+    .reading-title {
+      color: var(--white);
+      font-size: 1.15rem;
+      margin-bottom: .35rem;
+    }
+    .reading-meta {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .85rem;
+      color: rgba(255,255,255,.65);
+    }
+    .info-banner {
+      background: var(--off-white);
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .875rem;
+      color: var(--text-light);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .info-banner .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Prathosh A.P.</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="group.html">Lab</a>
+      <a href="cce-genai.html" class="active">CCE-GenAI</a>
+      <a href="https://scholar.google.com/citations?user=OEwV4bsAAAAJ" target="_blank">Scholar ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / CCE-GenAI</div>
+    <h1>CCE-GenAI</h1>
+    <p>Generative AI — Course Resources &nbsp;·&nbsp; Dr. Prathosh A.P., IISc Bengaluru</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<section class="section">
+  <div class="container">
+
+    <div class="info-banner">
+      <span class="icon">&#x2139;&#xFE0F;</span>
+      <span>This page hosts all resources for the CCE Generative AI course. Use the links below to access lecture videos, course notes, the reading list, and to join the course WhatsApp group. If you have questions, use the feedback form or write to <a href="mailto:prathosh@iisc.ac.in">prathosh@iisc.ac.in</a>.</span>
+    </div>
+
+    <!-- RESOURCES -->
+    <span class="section-label">Course Materials</span>
+    <h2 class="section-title" style="margin-bottom:1.5rem">Resources</h2>
+
+    <div class="resource-grid">
+
+      <a class="resource-card card-youtube" href="https://youtube.com/playlist?list=PLgMDNELGJ1Cay-Q9Cn8KcpUcC58NDWuiu&si=7aratcz2cz4lPaCf" target="_blank">
+        <div class="resource-icon">&#x1F3AC;</div>
+        <div class="resource-type">YouTube Playlist</div>
+        <div class="resource-title">Probability Prerequisites</div>
+        <div class="resource-desc">Lectures 2–10 covering the probability and statistics foundations needed for the course. Start here if you need to brush up on prerequisite material.</div>
+        <div class="resource-link-label">Open Playlist ↗</div>
+      </a>
+
+      <a class="resource-card card-youtube" href="https://youtube.com/playlist?list=PLZ2ps__7DhBa5xCmncgH7kPqLqMBq7xlu&si=wWuyg9DMKDO-hivD" target="_blank">
+        <div class="resource-icon">&#x1F3A5;</div>
+        <div class="resource-type">YouTube Playlist · Week 1</div>
+        <div class="resource-title">Week 1 Pre-Lecture Videos</div>
+        <div class="resource-desc">Pre-reading / pre-viewing material for the lecture on the 16th. Watch these Week 1 (W1) lectures before the corresponding class session.</div>
+        <div class="resource-link-label">Open Playlist ↗</div>
+      </a>
+
+      <a class="resource-card card-drive" href="https://drive.google.com/file/d/1Kebb00VehPBMyleuw2ubp2qbvrBqyvZZ/view?usp=drive_link" target="_blank">
+        <div class="resource-icon">&#x1F4C4;</div>
+        <div class="resource-type">Google Drive · PDF</div>
+        <div class="resource-title">GenAI Notes</div>
+        <div class="resource-desc">Lecture notes for the Generative AI portion of the course. Covers core generative modelling concepts, architectures, and mathematical derivations.</div>
+        <div class="resource-link-label">Open Notes ↗</div>
+      </a>
+
+      <a class="resource-card card-drive" href="https://drive.google.com/file/d/1D3nY_5h9s91sfLq9m7RDoewQ9uAuXgEl/view?usp=drive_link" target="_blank">
+        <div class="resource-icon">&#x1F4D8;</div>
+        <div class="resource-type">Google Drive · PDF</div>
+        <div class="resource-title">Classical ML Notes</div>
+        <div class="resource-desc">Notes covering classical machine learning: probabilistic models, Bayesian inference, linear/logistic regression, kernel methods, and dimensionality reduction.</div>
+        <div class="resource-link-label">Open Notes ↗</div>
+      </a>
+
+      <a class="resource-card card-form" href="https://docs.google.com/forms/d/e/1FAIpQLScEMMz2hdIRgMnKBOj1mrjvszMf2qnJaCuPZoJZ6RAm71TdIw/viewform?usp=header" target="_blank">
+        <div class="resource-icon">&#x1F4CB;</div>
+        <div class="resource-type">Google Form</div>
+        <div class="resource-title">Feedback Form</div>
+        <div class="resource-desc">Share your feedback on the course — lectures, pace, content, or anything else. Your responses help improve the course for everyone.</div>
+        <div class="resource-link-label">Submit Feedback ↗</div>
+      </a>
+
+      <a class="resource-card card-wa" href="https://chat.whatsapp.com/CZ8eSha1kfMCbg2gnlSHUT" target="_blank">
+        <div class="resource-icon">&#x1F4AC;</div>
+        <div class="resource-type">WhatsApp</div>
+        <div class="resource-title">Course Group</div>
+        <div class="resource-desc">Join the course WhatsApp group for announcements, scheduling updates, and peer discussion. All enrolled participants are welcome.</div>
+        <div class="resource-link-label">Join Group ↗</div>
+      </a>
+
+    </div>
+
+    <!-- READING -->
+    <span class="section-label">Required Reading</span>
+    <h2 class="section-title" style="margin-bottom:1.5rem">Textbook</h2>
+
+    <div class="reading-card">
+      <div class="book-icon">&#x1F4D6;</div>
+      <div>
+        <div class="reading-label">Primary Textbook</div>
+        <h3 class="reading-title">Probabilistic Machine Learning: Advanced Topics</h3>
+        <div class="reading-meta">Kevin P. Murphy &nbsp;·&nbsp; MIT Press, 2023</div>
+        <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:rgba(255,255,255,.65);margin-top:.75rem;margin-bottom:0">
+          A comprehensive reference covering probabilistic graphical models, deep generative models, Bayesian deep learning, and advanced inference methods. Freely available online at <a href="https://probml.github.io/pml-book/book2.html" target="_blank" style="color:var(--amber)">probml.github.io ↗</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT THE COURSE -->
+<div class="divider"></div>
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">About This Course</h2>
+    <div class="about-grid" style="grid-template-columns:1fr 300px">
+      <div>
+        <p>
+          This course is offered through IISc's <strong>Centre for Continuing Education (CCE)</strong> programme, designed to bring rigorous, research-level instruction in Generative AI to working professionals and advanced students.
+        </p>
+        <p>
+          The course covers the mathematical and algorithmic foundations of modern generative models — from classical probabilistic ML and Bayesian inference through to state-of-the-art deep generative architectures including VAEs, GANs, normalising flows, diffusion models, and large language models.
+        </p>
+        <p style="margin-bottom:0">
+          The material draws on the instructor's active research programme in generative AI (machine unlearning, symmetry discovery, neural operators, and generative AI for medicine) and is designed to give participants both theoretical depth and practical intuition.
+        </p>
+      </div>
+      <div class="contact-card">
+        <h4>Instructor</h4>
+        <div class="contact-item">
+          <span class="icon">&#x1F393;</span>
+          <span>Dr. Prathosh A.P.<br>Assistant Professor, ECE, IISc</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon">&#x2709;</span>
+          <span><a href="mailto:prathosh@iisc.ac.in">prathosh@iisc.ac.in</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="icon">&#x1F4CD;</span>
+          <span>SPW 101, Signal Processing Building, IISc</span>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link-btn scholar" href="teaching.html">Full Teaching Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Dr. Prathosh A.P.</div>
+      <div class="footer-info">Assistant Professor, ECE · Indian Institute of Science, Bengaluru 560012</div>
+      <div class="footer-info">&#x2709; <a href="mailto:prathosh@iisc.ac.in">prathosh@iisc.ac.in</a></div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="group.html">Lab</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
