@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Funded research projects of Dr. Prathosh A.P., IISc Bengaluru. Total career funding ~₹9.23 Crore.">
+  <title>Projects &amp; Funding | Dr. Prathosh A.P.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .funding-total {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .funding-total h3 { color: var(--white); margin: 0; }
+    .funding-total .amount {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--amber);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .funding-total .sub {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .85rem;
+      color: rgba(255,255,255,.65);
+      margin-top: 4px;
+    }
+    .project-category {
+      margin-bottom: 3rem;
+    }
+    .project-category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 2px solid var(--navy);
+    }
+    .project-category-title { font-size: 1.3rem; }
+    .project-category-total {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--amber-dark);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .project-card {
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+      transition: all var(--transition);
+    }
+    .project-card:hover { box-shadow: var(--shadow-sm); border-color: var(--navy-light); }
+    .project-title { font-size: .95rem; color: var(--navy); margin-bottom: .3rem; font-weight: bold; font-family: Georgia, serif; }
+    .project-meta {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .8rem;
+      color: var(--text-light);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: .35rem;
+    }
+    .project-meta span { display: flex; align-items: center; gap: 5px; }
+    .project-amount {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .project-amount .year {
+      font-size: .72rem;
+      font-weight: 400;
+      color: var(--text-light);
+      display: block;
+      margin-top: 2px;
+    }
+    .role-badge {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .role-pi { background: #dbeafe; color: #1e3a8a; }
+    .role-copi { background: #f0fdf4; color: #14532d; }
+    .consulting-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .consulting-item {
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      background: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .consulting-item .company {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .consulting-item .desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .75rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .consulting-item .amount {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .industry-note {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .825rem;
+      color: var(--text-light);
+      background: var(--off-white);
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-top: 1rem;
+    }
+    .iitd-context {
+      background: var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-top: 1rem;
+    }
+    .iitd-context h4 { margin-bottom: .75rem; }
+    .iitd-context p {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .85rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Prathosh A.P.</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="group.html">Lab</a>
+      <a href="https://scholar.google.com/citations?user=OEwV4bsAAAAJ" target="_blank">Scholar ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Projects &amp; Funding</div>
+    <h1>Funded Research Projects</h1>
+    <p>IISc period: September 2021 – May 2026 &nbsp;·&nbsp; Career total: ~₹9.23 Crore</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- TOTALS -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:2.5rem">
+      <div class="stat-block" style="border:1px solid #dde1ec;border-radius:var(--radius-lg);text-align:center;padding:20px">
+        <div class="stat-label">Intramural</div>
+        <div class="stat-primary" style="font-size:1.4rem">₹85 L</div>
+        <div class="stat-detail">IoE Start-up + Infosys</div>
+      </div>
+      <div class="stat-block" style="border:1px solid #dde1ec;border-radius:var(--radius-lg);text-align:center;padding:20px">
+        <div class="stat-label">Govt. / Extramural</div>
+        <div class="stat-primary" style="font-size:1.4rem">₹251.75 L</div>
+        <div class="stat-detail">MeitY · DRDO · ICMR · CBR</div>
+      </div>
+      <div class="stat-block" style="border:1px solid #dde1ec;border-radius:var(--radius-lg);text-align:center;padding:20px">
+        <div class="stat-label">Industry (SID/CSSP)</div>
+        <div class="stat-primary" style="font-size:1.4rem">₹106.65 L</div>
+        <div class="stat-detail">TCS · IBM · Google · AMD · more</div>
+      </div>
+      <div class="stat-block" style="border:1px solid #dde1ec;border-radius:var(--radius-lg);text-align:center;padding:20px">
+        <div class="stat-label">Consulting (CSIC)</div>
+        <div class="stat-primary" style="font-size:1.4rem">₹51.66 L</div>
+        <div class="stat-detail">Tvarit · Oplus · AIDash · Policybazaar</div>
+      </div>
+    </div>
+
+    <div class="funding-total">
+      <div>
+        <h3>IISc Period Total (Released Basis)</h3>
+        <div class="sub">September 2021 – May 2026 · All amounts are released/received funds</div>
+      </div>
+      <div style="text-align:right">
+        <div class="amount">₹4.95 Crore</div>
+        <div class="sub">₹495.12 Lakhs released · ICMR total project value ₹6 Crore</div>
+      </div>
+    </div>
+
+    <!-- INTRAMURAL -->
+    <div class="project-category">
+      <div class="project-category-header">
+        <h2 class="project-category-title">Intramural Grants (IISc)</h2>
+        <span class="project-category-total">Total: ₹85 Lakhs</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">IoE Start-Up Grant, IISc</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>Duration: 2 years</span>
+            <span>Infrastructure + research setup for ISL</span>
+          </div>
+        </div>
+        <div class="project-amount">₹80 Lakhs<span class="year">Sep 2021</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Infosys Foundation Young Investigator Award — Research Grant</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">Awardee</span></span>
+            <span>₹2.5 Lakhs/year × 2 years</span>
+          </div>
+        </div>
+        <div class="project-amount">₹5 Lakhs<span class="year">Apr 2023</span></div>
+      </div>
+    </div>
+
+    <!-- EXTRAMURAL -->
+    <div class="project-category">
+      <div class="project-category-header">
+        <h2 class="project-category-title">Government / Extramural Projects</h2>
+        <span class="project-category-total">Total released: ₹251.75 Lakhs · ICMR project ₹6 Crore total</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">AI &amp; 3D Model-Assisted Neurosurgical Planning, Assistance, and Skills Evaluation Systems</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI at IISc</span></span>
+            <span>ICMR Intermediate Grant</span>
+            <span>3 years · Co-PIs: Prof. Anirban Chakraborty, Prof. Soma Biswas (IISc) · PI at AIIMS: Dr. Ashish Suri</span>
+          </div>
+          <div style="margin-top:.6rem;font-family:-apple-system,sans-serif;font-size:.8rem;color:var(--text-light)">
+            Total project value across IISc and AIIMS Delhi: <strong>₹6 Crore</strong>. Year 1 release: ₹1.28 Crore.
+          </div>
+        </div>
+        <div class="project-amount">₹1.28 Cr (Year 1)<span class="year">Jan 2026</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Visiting Faculty Contingency Grant, Centre for Brain Research (CBR), IISc</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">Awardee</span></span>
+            <span>Up to 3 years renewable · AI for brain health and ageing</span>
+          </div>
+        </div>
+        <div class="project-amount">₹10 L/year<span class="year">Mar 2026</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Sanskrit-based NLP for Indic Language Computing</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>MeitY</span>
+            <span>3 years</span>
+          </div>
+        </div>
+        <div class="project-amount">₹55 Lakhs<span class="year">Apr 2022</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Automatic Speech Recognition for Mandarin and Hindi</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>DRDO</span>
+            <span>18 months</span>
+          </div>
+        </div>
+        <div class="project-amount">₹49 Lakhs<span class="year">Jul 2022</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Explainable DL for Automated Grading of Duodenal Biopsies in Celiac Disease</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI at IISc</span></span>
+            <span>ICMR Ad-hoc · Multi-institute with IIT Delhi (Co-PI: Prof. Mausam)</span>
+            <span>2 years + 6-month extension</span>
+          </div>
+        </div>
+        <div class="project-amount">₹9.75 Lakhs<span class="year">Apr 2023</span></div>
+      </div>
+    </div>
+
+    <!-- INDUSTRY -->
+    <div class="project-category">
+      <div class="project-category-header">
+        <h2 class="project-category-title">Industry Projects (SID / CSSP)</h2>
+        <span class="project-category-total">Total: ₹106.65 Lakhs</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Google–IISc Centre of Excellence: Multi-modal Analysis of Image-Text-Audio Vaani Data</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-copi">Co-PI</span></span>
+            <span>With Prof. Soma Biswas, IISc</span>
+            <span>2 years</span>
+            <span>+ Compute credits</span>
+          </div>
+        </div>
+        <div class="project-amount">₹21.85 Lakhs<span class="year">Jan 2024</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">TCS Research: Continual Learning for Vision Models</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>TCS Research</span>
+            <span>1 year</span>
+            <span>→ TMLR 2025 publication</span>
+          </div>
+        </div>
+        <div class="project-amount">₹18.5 Lakhs<span class="year">Apr 2022</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">TCS Research: Multi-Modal Object Editing</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>TCS Research</span>
+            <span>1 year</span>
+            <span>→ ACM MM 2024 publication</span>
+          </div>
+        </div>
+        <div class="project-amount">₹18.5 Lakhs<span class="year">Apr 2023</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">IBM Research India: ML for Industrial Time-Series</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>IBM Research India</span>
+            <span>1 year</span>
+            <span>Collaboration during visiting researcher stint, Summer 2024</span>
+          </div>
+        </div>
+        <div class="project-amount">₹14.3 Lakhs<span class="year">Apr 2023</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Infosys Visiting Chair Research Grant</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>Infosys</span>
+            <span>1 year</span>
+          </div>
+        </div>
+        <div class="project-amount">₹12 Lakhs<span class="year">Apr 2023</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">Flipkart: Test-Time Adaptation for Virtual Try-On (ViTON)</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>Flipkart AI Labs</span>
+            <span>1 year</span>
+          </div>
+        </div>
+        <div class="project-amount">₹12 Lakhs<span class="year">Apr 2023</span></div>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <div class="project-title">AMD Global: High-Performance Compute Grant</div>
+          <div class="project-meta">
+            <span><span class="role-badge role-pi">PI</span></span>
+            <span>AMD Global</span>
+            <span>1 year</span>
+            <span>Research on efficient AI on AMD GPU hardware</span>
+          </div>
+        </div>
+        <div class="project-amount">₹9.5 Lakhs<span class="year">Jan 2026</span></div>
+      </div>
+
+      <div class="industry-note">
+        <strong>Research impact:</strong> Industry collaborations with TCS, IBM, Flipkart, Google, and AMD have generated publications at ICML, ACL, ACM MM, and TMLR, and contributed to patents — all engagements structured to produce publishable scientific contributions alongside practical deliverables.
+      </div>
+    </div>
+
+    <!-- CONSULTING -->
+    <div class="project-category">
+      <div class="project-category-header">
+        <h2 class="project-category-title">Consulting Projects (CSIC)</h2>
+        <span class="project-category-total">Total: ₹51.66 Lakhs</span>
+      </div>
+
+      <div class="consulting-list">
+        <div class="consulting-item">
+          <div>
+            <div class="company">Tvarit GmbH</div>
+            <div class="desc">Class-Imbalance for LPDC Manufacturing · 2022</div>
+          </div>
+          <div class="amount">₹4.88 L</div>
+        </div>
+        <div class="consulting-item">
+          <div>
+            <div class="company">Oplus</div>
+            <div class="desc">Model Compression for Generative Models · 2023</div>
+          </div>
+          <div class="amount">₹17.5 L</div>
+        </div>
+        <div class="consulting-item">
+          <div>
+            <div class="company">AIDash</div>
+            <div class="desc">Self-Supervised Learning for Satellite Imagery · 2023</div>
+          </div>
+          <div class="amount">₹11.78 L</div>
+        </div>
+        <div class="consulting-item">
+          <div>
+            <div class="company">Policybazaar</div>
+            <div class="desc">Speech Analytics and Label Reduction · 2024</div>
+          </div>
+          <div class="amount">₹17.5 L</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IITD CONTEXT -->
+    <div class="project-category">
+      <div class="project-category-header">
+        <h2 class="project-category-title">Prior to IISc — IITD Period (2017–2021)</h2>
+        <span class="project-category-total">For career context · Not included in IISc totals</span>
+      </div>
+      <div class="iitd-context">
+        <h4>IITD Period Funding — ₹427.62 Lakhs (~₹4.28 Crore)</h4>
+        <p>
+          BEST-MD: ML for Autism (DBT-BIRAC BIG) — PI — ₹48L &nbsp;·&nbsp;
+          Neurocomputing &amp; Cognitive Intelligence (MeitY) — Co-PI — ₹2.30 Cr &nbsp;·&nbsp;
+          IITD Startup Grant (GPU) — ₹18L &nbsp;·&nbsp;
+          Qualcomm Research Grant — ₹10L &nbsp;·&nbsp;
+          Samsung (2 grants) — ₹26L &nbsp;·&nbsp;
+          Google APAC — ₹9.5L &nbsp;·&nbsp;
+          SigTuple (2 grants) — ₹24.78L &nbsp;·&nbsp;
+          Queensland University — ₹5.13L &nbsp;·&nbsp;
+          Niramai — ₹5L &nbsp;·&nbsp;
+          IITD–AIIMS (3 grants) — ₹30L &nbsp;·&nbsp;
+          IITD Multi-Dept. — ₹10L &nbsp;·&nbsp;
+          Tvarit GmbH — ₹11.21L
+        </p>
+      </div>
+      <div class="funding-total" style="margin-top:1rem;margin-bottom:0">
+        <div>
+          <h3>Career Total (IISc + IITD)</h3>
+          <div class="sub">Combined funding across both faculty appointments</div>
+        </div>
+        <div style="text-align:right">
+          <div class="amount">~₹9.23 Crore</div>
+          <div class="sub">IISc: ₹4.95 Cr (released) + IITD: ₹4.28 Cr</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Dr. Prathosh A.P.</div>
+      <div class="footer-info">Assistant Professor, ECE · Indian Institute of Science, Bengaluru 560012</div>
+      <div class="footer-info">&#x2709; <a href="mailto:prathosh@iisc.ac.in">prathosh@iisc.ac.in</a></div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="group.html">Lab</a>
+      <a href="https://scholar.google.com/citations?user=OEwV4bsAAAAJ" target="_blank">Scholar</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

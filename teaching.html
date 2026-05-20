@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teaching activities of Dr. Prathosh A.P., IISc Bengaluru. Courses, MOOCs, and educational outreach.">
+  <title>Teaching | Dr. Prathosh A.P.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .course-card {
+      background: var(--white);
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+    .course-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .course-code {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .35rem;
+    }
+    .course-name { color: var(--white); font-size: 1.15rem; margin: 0; }
+    .course-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .course-badge {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .7rem;
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .badge-new { background: #16a34a; color: white; }
+    .badge-core { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
+    .course-score {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .score-val {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .score-sub {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .72rem;
+      color: rgba(255,255,255,.6);
+      margin-top: 3px;
+    }
+    .course-body { padding: 20px 28px; }
+    .course-desc {
+      font-size: .9rem;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+    }
+    .offering-table { width: 100%; border-collapse: collapse; }
+    .offering-table th {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 2px solid var(--gray-light);
+    }
+    .offering-table td {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .82rem;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--gray-light);
+      color: var(--text);
+    }
+    .offering-table tr:last-child td { border-bottom: none; }
+    .score-cell { font-weight: 700; color: var(--navy); }
+    .score-bar {
+      display: inline-block;
+      height: 6px;
+      background: var(--navy);
+      border-radius: 3px;
+      margin-left: 8px;
+      vertical-align: middle;
+      opacity: .25;
+    }
+    .score-bar.filled { opacity: 1; background: var(--amber-dark); }
+    .mooc-card {
+      border: 1px solid #dde1ec;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .mooc-header {
+      background: linear-gradient(135deg, #1e3a5f, #2c4a7c);
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .mooc-platform {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: .3rem;
+    }
+    .mooc-title { color: white; font-size: 1rem; margin: 0; }
+    .mooc-stat {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .mooc-num {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .mooc-sub {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .7rem;
+      color: rgba(255,255,255,.6);
+      margin-top: 2px;
+    }
+    .mooc-body {
+      padding: 16px 24px;
+      background: var(--white);
+    }
+    .mooc-body p {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .85rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+    .talk-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-light);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .talk-item:last-child { border-bottom: none; }
+    .talk-org {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .talk-detail {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: .82rem;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Prathosh A.P.</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="teaching.html" class="active">Teaching</a>
+      <a href="group.html">Lab</a>
+      <a href="https://scholar.google.com/citations?user=OEwV4bsAAAAJ" target="_blank">Scholar ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Teaching</div>
+    <h1>Teaching</h1>
+    <p>IISc · 2021–2026 &nbsp;·&nbsp; 554 enrolled across E1 213 · avg 4.68/5 on E9 333 · 10,354+ NPTEL learners</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <span class="section-label">IISc Courses</span>
+    <h2 class="section-title">Courses at IISc</h2>
+
+    <!-- E1 213 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div>
+          <div class="course-code">E1 213 · Jan Term · 3:1 Credits</div>
+          <h3 class="course-name">Pattern Recognition and Neural Networks</h3>
+          <div class="course-badges">
+            <span class="course-badge badge-core">Core Graduate Course</span>
+            <span class="course-badge badge-core">5 Offerings (2022–2026)</span>
+          </div>
+        </div>
+        <div class="course-score">
+          <div class="score-val">4.19</div>
+          <div class="score-sub">avg score /5<br>(4 completed offerings)</div>
+        </div>
+      </div>
+      <div class="course-body">
+        <p class="course-desc">
+          Core graduate course covering probability and statistical inference, Bayesian decision theory, parametric and non-parametric classifiers, kernel methods, dimensionality reduction, and modern deep learning — from feedforward networks to transformers. Consistently one of the largest graduate-level courses in ECE at IISc, with 554 total enrolled students across five offerings.
+        </p>
+        <table class="offering-table">
+          <thead>
+            <tr><th>Term</th><th>Enrolled</th><th>Feedback Responses</th><th>Score (/5)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Jan 2021–22</td><td>117</td><td>42</td><td class="score-cell">3.45</td></tr>
+            <tr><td>Jan 2022–23</td><td>127</td><td>35</td><td class="score-cell">4.31</td></tr>
+            <tr><td>Jan 2023–24</td><td>146</td><td>42</td><td class="score-cell">4.55</td></tr>
+            <tr><td>Jan 2024–25</td><td>82</td><td>48</td><td class="score-cell">4.46</td></tr>
+            <tr><td>Jan 2025–26</td><td>82</td><td>—</td><td class="score-cell">Ongoing</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- E9 333 -->
+    <div class="course-card">
+      <div class="course-header">
+        <div>
+          <div class="course-code">E9 333 · Aug Term · 3:1 Credits</div>
+          <h3 class="course-name">Advanced Deep Representation Learning</h3>
+          <div class="course-badges">
+            <span class="course-badge badge-new">New Course — Proposed &amp; Designed at IISc</span>
+            <span class="course-badge badge-core">4 Offerings (2022–2025)</span>
+          </div>
+        </div>
+        <div class="course-score">
+          <div class="score-val">4.68</div>
+          <div class="score-sub">avg score /5<br>Perfect 5.00 for "Expertise"</div>
+        </div>
+      </div>
+      <div class="course-body">
+        <p class="course-desc">
+          Course proposed and designed afresh at IISc. Covers advanced representation learning, generative models (VAEs, GANs, diffusion models), self-supervised learning, modern deep learning theory, and emerging topics in foundation models. Enrollment grew from 55 (2022) to 130 students (2024); teaching scores have improved every year (4.50 → 4.75 → 4.78). Perfect 5.00/5 for "Expertise in Subject" in 2024.
+        </p>
+        <table class="offering-table">
+          <thead>
+            <tr><th>Term</th><th>Enrolled</th><th>Feedback Responses</th><th>Score (/5)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aug 2022–23</td><td>55</td><td>36</td><td class="score-cell">4.50</td></tr>
+            <tr><td>Aug 2023–24</td><td>99</td><td>28</td><td class="score-cell">4.75</td></tr>
+            <tr><td>Aug 2024–25</td><td>130</td><td>18</td><td class="score-cell">4.78</td></tr>
+            <tr><td>Aug 2025–26</td><td>Ongoing</td><td>—</td><td class="score-cell">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- E1 285o / E1 286o -->
+    <div class="course-card">
+      <div class="course-header">
+        <div>
+          <div class="course-code">E1 285o / E1 286o · Aug Term · 3:1 Credits</div>
+          <h3 class="course-name">Advanced Deep Representation Learning / Deep Generative Models</h3>
+          <div class="course-badges">
+            <span class="course-badge badge-core">3 Offerings (2022–2024)</span>
+            <span class="course-badge badge-core">Smaller Research-Track Sections</span>
+          </div>
+        </div>
+        <div class="course-score">
+          <div class="score-val">4.40</div>
+          <div class="score-sub">avg score /5</div>
+        </div>
+      </div>
+      <div class="course-body">
+        <p class="course-desc">
+          Research-track companion to E9 333, offered to a smaller cohort of advanced students. Covers generative model theory and recent advances in deep learning research at greater depth.
+        </p>
+        <table class="offering-table">
+          <thead>
+            <tr><th>Term</th><th>Course</th><th>Enrolled</th><th>Score (/5)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Aug 2022–23</td><td>E1 285o</td><td>37</td><td class="score-cell">4.47</td></tr>
+            <tr><td>Aug 2023–24</td><td>E1 285o</td><td>42</td><td class="score-cell">4.73</td></tr>
+            <tr><td>Aug 2024–25</td><td>E1 286o: Deep Generative Models</td><td>88</td><td class="score-cell">4.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MOOCs -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Online Courses</span>
+    <h2 class="section-title">MOOCs &amp; Online Teaching</h2>
+
+    <div class="mooc-card">
+      <div class="mooc-header">
+        <div>
+          <div class="mooc-platform">NPTEL · IISc Bangalore (106108841 · noc26_cs02)</div>
+          <h3 class="mooc-title">NOC: Mathematical Foundations of Machine Learning</h3>
+        </div>
+        <div class="mooc-stat">
+          <div class="mooc-num">10,354</div>
+          <div class="mooc-sub">enrolled (Jan 2026)<br>2nd offering: Aug 2026 (ongoing)</div>
+        </div>
+      </div>
+      <div class="mooc-body">
+        <p>12-week course covering mathematical foundations of ML: linear algebra, probability, statistical inference, optimisation, and connections to modern deep learning. Recorded lecture videos freely available on YouTube. 2nd offering (August 2026) currently ongoing.</p>
+      </div>
+    </div>
+
+    <div class="mooc-card">
+      <div class="mooc-header">
+        <div>
+          <div class="mooc-platform">IIT Madras — BS in Data Science (BSDA5002) · 2 Offerings</div>
+          <h3 class="mooc-title">Mathematical Foundations of Generative AI</h3>
+        </div>
+        <div class="mooc-stat">
+          <div class="mooc-num">500+</div>
+          <div class="mooc-sub">learners (combined)<br>Jul 2025 · Jan 2026</div>
+        </div>
+      </div>
+      <div class="mooc-body">
+        <p>4-credit, 12-week course on the mathematical principles underlying generative AI — diffusion models, VAEs, normalising flows, and score-based methods. Designed for the IIT Madras BS Data Science programme.</p>
+      </div>
+    </div>
+
+    <div class="stat-block" style="background:var(--navy);border-radius:var(--radius-lg);padding:24px 32px;margin-top:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="color:rgba(255,255,255,.8);font-family:-apple-system,sans-serif;font-size:.9rem">
+        Lecture recordings on <strong style="color:white">YouTube</strong> — freely accessible globally beyond enrolled students
+      </div>
+      <div style="font-family:-apple-system,sans-serif;font-size:2rem;font-weight:900;color:var(--amber)">100,000+ <span style="font-size:.9rem;color:rgba(255,255,255,.7);font-weight:400">cumulative views</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INVITED TALKS -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Outreach</span>
+    <h2 class="section-title">Invited Talks &amp; Lectures</h2>
+    <p style="color:var(--text-light);margin-bottom:2rem">30+ invited talks delivered during the IISc review period (2021–2026) across industry, academia, and government.</p>
+
+    <div class="grid-2" style="gap:40px;align-items:start">
+      <div>
+        <h3 style="margin-bottom:1rem;font-size:1.1rem">Industry Research Laboratories</h3>
+        <div class="talk-item">
+          <span class="talk-org">Google Research</span>
+          <span class="talk-detail">Bengaluru</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Microsoft Research</span>
+          <span class="talk-detail">Bengaluru</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Adobe Research</span>
+          <span class="talk-detail"></span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">TCS Research</span>
+          <span class="talk-detail"></span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">AMD Research</span>
+          <span class="talk-detail"></span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">IBM Research India</span>
+          <span class="talk-detail">Bengaluru · Summer 2024 visiting stint</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Fujitsu Research</span>
+          <span class="talk-detail">Bengaluru · Summer 2022, 2023</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Flipkart AI Labs</span>
+          <span class="talk-detail">Bengaluru</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Samsung Research</span>
+          <span class="talk-detail">Bengaluru</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Goldman Sachs</span>
+          <span class="talk-detail">Bengaluru</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Ericsson Research</span>
+          <span class="talk-detail">India</span>
+        </div>
+
+        <h3 style="margin-top:2rem;margin-bottom:1rem;font-size:1.1rem">Academic Institutions</h3>
+        <div class="talk-item">
+          <span class="talk-org">IIT Madras</span>
+          <span class="talk-detail"></span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">IIT Kanpur</span>
+          <span class="talk-detail"></span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">IIT Delhi</span>
+          <span class="talk-detail">Multiple visits</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">FDP Programs</span>
+          <span class="talk-detail">Lectures at Faculty Development Programs for faculty across Indian institutions</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom:1rem;font-size:1.1rem">Government &amp; Policy</h3>
+        <div class="talk-item">
+          <span class="talk-org">MHA / PMO</span>
+          <span class="talk-detail">Ministry of Home Affairs — Gyan Bharatam mission (AI for ancient manuscripts digitisation) · Prime Minister's Office — AI for national governance</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Home Minister</span>
+          <span class="talk-detail">Personal interaction with Hon'ble Home Minister of India on the Gyan Bharatam Mission</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Govt. Karnataka</span>
+          <span class="talk-detail">Dept. of Heritage — AI for heritage preservation</span>
+        </div>
+
+        <h3 style="margin-top:2rem;margin-bottom:1rem;font-size:1.1rem">Conference Keynotes</h3>
+        <div class="talk-item">
+          <span class="talk-org">Multiple</span>
+          <span class="talk-detail">Keynote addresses at national and international conferences in Generative AI, Medical Image Analysis, and Scientific Machine Learning</span>
+        </div>
+
+        <h3 style="margin-top:2rem;margin-bottom:1rem;font-size:1.1rem">Media Coverage</h3>
+        <div class="talk-item">
+          <span class="talk-org">DD News</span>
+          <span class="talk-detail">Doordarshan National Television — featured segment on AI research and applications</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Analytics India Mag</span>
+          <span class="talk-detail">Coverage of LatentForce.ai and research on Agentic AI; IISc-incubated ventures feature</span>
+        </div>
+        <div class="talk-item">
+          <span class="talk-org">Tech Press</span>
+          <span class="talk-detail">LatentForce.ai seed funding round (₹15 Crore, December 2025) covered in technology and startup media</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICE -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Service</span>
+    <h2 class="section-title">Professional Service</h2>
+
+    <div class="grid-2" style="gap:32px;align-items:start">
+      <div>
+        <h3 style="font-size:1.05rem;margin-bottom:1rem">Editorial &amp; Programme Roles</h3>
+        <div class="contact-card">
+          <h4>Area Chair</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            NeurIPS 2026 · ICML 2026 · ICLR 2026 · NeurIPS 2025 · AAAI · UAI · AISTATS
+          </p>
+        </div>
+        <div class="contact-card" style="margin-top:12px">
+          <h4>Senior / Programme Committee</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            ICML · ICLR · NeurIPS · AAAI · CVPR · AISTATS · ACL · EMNLP (2021–Present)
+          </p>
+        </div>
+        <div class="contact-card" style="margin-top:12px">
+          <h4>Reviewer</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            TMLR · IEEE Trans. Medical Imaging · IEEE TPAMI · IEEE Signal Processing Letters · Medical Image Analysis · Neural Networks
+          </p>
+        </div>
+        <div class="contact-card" style="margin-top:12px">
+          <h4>Organising Committee</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            SPCOM 2022 · SPCOM 2024 · SPCOM 2026 · NCC 2026 · CoDS 2026 · EECS Symposium 2022 · ECE Faculty Seminar Series 2024
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:1.05rem;margin-bottom:1rem">Institute &amp; Government Service</h3>
+        <div class="contact-card">
+          <h4>Government Advisory</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            Member, <strong>Committee for Responsible AI, Government of Karnataka</strong> (G.O. No. ITBT 02 PRM 2026, Mar 2026). Chaired by Shri Kris Gopalakrishnan (Co-Founder, Infosys). Mandate: responsible AI policy, risk classification, data governance, transparency, third-party audit, and procurement guidelines.
+          </p>
+        </div>
+        <div class="contact-card" style="margin-top:12px">
+          <h4>IISc Institutional Roles</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            Founding Steering Faculty, <strong>Kotak IISc AI/ML Centre (KIAC)</strong> ·
+            Core Group, <strong>IISc Health AI Centre of Excellence</strong> ·
+            Visiting Faculty, <strong>Centre for Brain Research (CBR)</strong> (Mar 2026) ·
+            PCC Member, MTech Online ECE Program ·
+            PhD Comprehensive Exam Committees (ECE, CSA, CDS, EECS) ·
+            Annual Research Review (ARR) Committee, ECE
+          </p>
+        </div>
+        <div class="contact-card" style="margin-top:12px">
+          <h4>PhD Thesis Examiner</h4>
+          <p style="font-family:-apple-system,sans-serif;font-size:.875rem;color:var(--text-light);margin:0">
+            External examiner for PhD dissertations from IIT Delhi · IIT Hyderabad · IIIT Bangalore
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Dr. Prathosh A.P.</div>
+      <div class="footer-info">Assistant Professor, ECE · Indian Institute of Science, Bengaluru 560012</div>
+      <div class="footer-info">&#x2709; <a href="mailto:prathosh@iisc.ac.in">prathosh@iisc.ac.in</a></div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="group.html">Lab</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
