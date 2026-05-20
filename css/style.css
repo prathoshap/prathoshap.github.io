@@ -3,25 +3,25 @@
   --accent:      #60a5fa;
   --accent-dark: #3b82f6;
   --text:        #e2e8f0;
-  --text-light:  #94a3b8;
-  --border:      #334155;
-  --bg:          #0f172a;
-  --bg-alt:      #1e293b;
-  --white:       #ffffff;
-  --gray-light:  #334155;
+  --text-light:  #9ca3af;
+  --border:      #3a3a3a;
+  --bg:          #181818;
+  --bg-alt:      #222222;
+  --white:       #e2e8f0;
+  --gray-light:  #3a3a3a;
   --transition:  0.15s ease;
   --radius:      6px;
   --radius-lg:   10px;
-  --shadow-sm:   0 1px 3px rgba(0,0,0,.3);
-  --shadow-md:   0 4px 12px rgba(0,0,0,.4);
+  --shadow-sm:   0 1px 3px rgba(0,0,0,.4);
+  --shadow-md:   0 4px 12px rgba(0,0,0,.5);
 
   /* Legacy aliases so existing HTML classes keep working */
-  --navy:        #e2e8f0;
-  --navy-mid:    #1e3a5f;
+  --navy:        #222222;
+  --navy-mid:    #2a2a2a;
   --navy-light:  #60a5fa;
   --amber:       #60a5fa;
   --amber-dark:  #3b82f6;
-  --off-white:   #1e293b;
+  --off-white:   #222222;
 }
 
 /* ===== RESET & BASE ===== */

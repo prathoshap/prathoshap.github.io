@@ -8,22 +8,22 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     .course-card {
-      background: var(--white);
-      border: 1px solid #dde1ec;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
       margin-bottom: 24px;
     }
     .course-header {
-      background: var(--navy);
-      color: var(--white);
+      background: #2a2a2a;
+      color: var(--text);
       padding: 20px 28px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 16px;
       flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
     }
     .course-code {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -34,7 +34,7 @@
       color: var(--amber);
       margin-bottom: .35rem;
     }
-    .course-name { color: var(--white); font-size: 1.15rem; margin: 0; }
+    .course-name { color: var(--text); font-size: 1.15rem; margin: 0; }
     .course-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
     .course-badge {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -88,26 +88,26 @@
       color: var(--text);
     }
     .offering-table tr:last-child td { border-bottom: none; }
-    .score-cell { font-weight: 700; color: var(--navy); }
+    .score-cell { font-weight: 700; color: var(--text); }
     .score-bar {
       display: inline-block;
       height: 6px;
-      background: var(--navy);
+      background: var(--border);
       border-radius: 3px;
       margin-left: 8px;
       vertical-align: middle;
-      opacity: .25;
+      opacity: .5;
     }
     .score-bar.filled { opacity: 1; background: var(--amber-dark); }
     .mooc-card {
-      border: 1px solid #dde1ec;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       overflow: hidden;
       margin-bottom: 20px;
     }
     .mooc-header {
-      background: linear-gradient(135deg, #1e3a5f, #2c4a7c);
-      color: white;
+      background: #2a2a2a;
+      color: var(--text);
       padding: 16px 24px;
       display: flex;
       justify-content: space-between;
@@ -143,7 +143,7 @@
     }
     .mooc-body {
       padding: 16px 24px;
-      background: var(--white);
+      background: var(--bg-alt);
     }
     .mooc-body p {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -164,7 +164,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: .78rem;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--text);
     }
     .talk-detail {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -270,33 +270,47 @@
   <div class="container">
     <span class="section-label">IIT Delhi</span>
     <h2 class="section-title">Courses at IIT Delhi (2017–2021)</h2>
-    <div class="grid-2" style="gap:20px">
+    <div class="grid-3" style="gap:20px">
       <div class="course-card">
         <div class="course-header">
           <div>
-            <div class="course-code">ELL 784 · 3 Offerings (2017–2020)</div>
-            <h3 class="course-name">Machine Learning</h3>
+            <div class="course-code">ELL 784 · Multiple Offerings</div>
+            <h3 class="course-name">Introduction to Machine Learning</h3>
             <div class="course-badges">
-              <span class="course-badge badge-core">Core Graduate Course</span>
+              <span class="course-badge badge-core">Graduate Course</span>
             </div>
           </div>
         </div>
         <div class="course-body">
-          <p class="course-desc">Graduate course on machine learning foundations — statistical learning theory, probabilistic models, kernel methods, and neural networks. Offered three times to ECE graduate students.</p>
+          <p class="course-desc">Foundational graduate course covering statistical learning theory, probabilistic models, kernel methods, and neural network basics.</p>
         </div>
       </div>
       <div class="course-card">
         <div class="course-header">
           <div>
-            <div class="course-code">ELL 888 · 3 Offerings (2018–2021)</div>
-            <h3 class="course-name">Deep Learning</h3>
+            <div class="course-code">ELL 409 · Multiple Offerings</div>
+            <h3 class="course-name">Machine Intelligence and Learning</h3>
+            <div class="course-badges">
+              <span class="course-badge badge-core">Graduate Course</span>
+            </div>
+          </div>
+        </div>
+        <div class="course-body">
+          <p class="course-desc">Graduate course on machine intelligence covering supervised, unsupervised, and reinforcement learning with applications.</p>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-header">
+          <div>
+            <div class="course-code">ELL 888 · Multiple Offerings</div>
+            <h3 class="course-name">Advanced Machine Learning</h3>
             <div class="course-badges">
               <span class="course-badge badge-core">Graduate Elective</span>
             </div>
           </div>
         </div>
         <div class="course-body">
-          <p class="course-desc">Graduate elective covering deep learning architectures — CNNs, RNNs, attention mechanisms, and generative models. Offered three times at IIT Delhi.</p>
+          <p class="course-desc">Advanced topics in machine learning: deep architectures, generative models, representation learning, and modern learning theory.</p>
         </div>
       </div>
     </div>
