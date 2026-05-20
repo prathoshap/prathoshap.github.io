@@ -120,7 +120,7 @@ p  { margin-bottom: 1rem; }
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 48px;
   align-items: center;
 }
@@ -191,8 +191,8 @@ p  { margin-bottom: 1rem; }
 .btn-navy:hover { background: var(--accent-dark); color: var(--bg) !important; }
 
 .hero-photo {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   border: 2px solid var(--border);
   background: var(--bg-alt);
