@@ -90,20 +90,6 @@ p  { margin-bottom: 1rem; }
   max-width: 960px;
   margin: 0 auto;
 }
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.nav-iisc-link { line-height: 0; flex-shrink: 0; }
-.nav-iisc-logo {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 4px;
-  padding: 2px;
-}
 .nav-brand {
   font-size: .95rem;
   font-weight: 700;
