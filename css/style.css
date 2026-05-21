@@ -120,7 +120,7 @@ p  { margin-bottom: 1rem; }
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 48px;
   align-items: center;
 }
@@ -200,20 +200,21 @@ p  { margin-bottom: 1rem; }
   flex-shrink: 0;
 }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-.hero-iisc-link { display: block; flex-shrink: 0; }
-.hero-iisc-logo {
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  background: #fff;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hero-iisc-corner {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  display: block;
+  line-height: 0;
 }
-.hero-iisc-logo img { width: 65%; height: 65%; object-fit: contain; }
+.hero-iisc-corner img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px;
+}
 
 /* ===== STATS BAR (kept for compat, hidden by default) ===== */
 .stats-bar { display: none; }
@@ -579,9 +580,9 @@ footer a:hover { text-decoration: underline; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .hero-inner      { grid-template-columns: 1fr; }
-  .hero-photo      { display: none; }
-  .hero-iisc-link  { display: none; }
+  .hero-inner        { grid-template-columns: 1fr; }
+  .hero-photo        { display: none; }
+  .hero-iisc-corner  { display: none; }
   .about-grid   { grid-template-columns: 1fr; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .pub-stats    { grid-template-columns: repeat(2, 1fr); }
