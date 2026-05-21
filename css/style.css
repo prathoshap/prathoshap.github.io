@@ -1,7 +1,7 @@
 /* ===== DESIGN TOKENS ===== */
 :root {
-  --accent:      #60a5fa;
-  --accent-dark: #3b82f6;
+  --accent:      #5a8fc2;
+  --accent-dark: #4a7aab;
   --text:        #e2e8f0;
   --text-light:  #9ca3af;
   --border:      #3a3a3a;
@@ -18,9 +18,9 @@
   /* Legacy aliases so existing HTML classes keep working */
   --navy:        #222222;
   --navy-mid:    #2a2a2a;
-  --navy-light:  #60a5fa;
-  --amber:       #60a5fa;
-  --amber-dark:  #3b82f6;
+  --navy-light:  #5a8fc2;
+  --amber:       #5a8fc2;
+  --amber-dark:  #4a7aab;
   --off-white:   #222222;
 }
 
@@ -60,8 +60,8 @@ p  { margin-bottom: 1rem; }
 
 .section-label {
   font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .12em;
+  font-weight: 600;
+  letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--text-light);
   margin-bottom: .4rem;
@@ -132,8 +132,8 @@ p  { margin-bottom: 1rem; }
 }
 .hero-subtitle-2 {
   font-size: .9rem;
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--text-light);
+  font-weight: 400;
   margin-bottom: 1.5rem;
 }
 .hero-quote {
@@ -282,14 +282,7 @@ p  { margin-bottom: 1rem; }
   transition: border-color var(--transition);
 }
 .theme-card:hover { border-color: var(--accent); }
-.theme-number {
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  color: var(--text-light);
-  text-transform: uppercase;
-  margin-bottom: .4rem;
-}
+.theme-number { display: none; }
 .theme-card h3 { margin-bottom: .6rem; font-size: 1rem; }
 .theme-card p  { font-size: .875rem; color: var(--text-light); flex: 1; margin-bottom: .75rem; }
 .theme-papers {
