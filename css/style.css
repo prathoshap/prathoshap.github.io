@@ -323,21 +323,20 @@ p  { margin-bottom: 1rem; }
 }
 .highlight-badge {
   font-size: .63rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .04em;
   white-space: nowrap;
   flex-shrink: 0;
   margin-top: 3px;
+  min-width: 80px;
 }
-.badge-conf    { background: #1e3a5f; color: #93c5fd; }
-.badge-journal { background: #14532d; color: #86efac; }
-.badge-grant   { background: #713f12; color: #fde68a; }
-.badge-startup { background: #4c1d95; color: #d8b4fe; }
-.badge-award   { background: #7f1d1d; color: #fca5a5; }
-.badge-service { background: #0c4a6e; color: #7dd3fc; }
+.badge-conf    { color: #93c5fd; }
+.badge-journal { color: #86efac; }
+.badge-grant   { color: #fde68a; }
+.badge-startup { color: #d8b4fe; }
+.badge-award   { color: #fca5a5; }
+.badge-service { color: #7dd3fc; }
 .highlight-text {
   font-size: .875rem;
   color: var(--text-light);
@@ -374,15 +373,13 @@ p  { margin-bottom: 1rem; }
 .startup-tag {
   display: inline-block;
   font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .08em;
+  font-weight: 600;
+  letter-spacing: .05em;
   text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 4px;
   margin-bottom: .75rem;
 }
-.tag-active   { background: #14532d; color: #86efac; }
-.tag-acquired { background: #1e3a5f; color: #93c5fd; }
+.tag-active   { color: #86efac; }
+.tag-acquired { color: #93c5fd; }
 .startup-name { font-size: 1.3rem; margin-bottom: .25rem; }
 .startup-role { font-size: .85rem; color: var(--text-light); margin-bottom: 1rem; }
 .startup-stats {
@@ -455,16 +452,14 @@ p  { margin-bottom: 1rem; }
 .pub-item-venue strong { font-style: normal; color: var(--accent); }
 .pub-badge {
   font-size: .63rem;
-  font-weight: 700;
-  padding: 3px 7px;
-  border-radius: 4px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .04em;
   white-space: nowrap;
   align-self: start;
 }
-.badge-j { background: #14532d; color: #86efac; }
-.badge-c { background: #1e3a5f; color: #93c5fd; }
+.badge-j { color: #86efac; }
+.badge-c { color: #93c5fd; }
 
 /* ===== STUDENTS PAGE ===== */
 .student-card {
