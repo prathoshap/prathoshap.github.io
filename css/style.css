@@ -190,15 +190,6 @@ p  { margin-bottom: 1rem; }
 }
 .btn-navy:hover { background: var(--accent-dark); color: var(--bg) !important; }
 
-.nav-iisc-link { display: flex; align-items: center; }
-.nav-iisc-logo {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 4px;
-  padding: 2px;
-}
 .hero-photo {
   width: 180px;
   height: 180px;
