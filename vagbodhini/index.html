@@ -11,48 +11,49 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{ --ink:#2a2018; --soft:#6d6256; --accent:#a8330d; --gold:#bd8a2d;
-         --line:#ece2d2; --bg:#fdfaf4; --card:#ffffff; }
+  /* peacock-teal + indigo "vidyā" palette — distinct from Vāgdhenu's terracotta */
+  :root{ --ink:#16252b; --soft:#57707a; --accent:#0e7490; --accent-dk:#0a4b5e; --indigo:#5b53a6;
+         --line:#d7e6e9; --bg:#f2f7f8; --card:#ffffff; }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:#2a2018;font-family:'Spectral',Georgia,serif;
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Spectral',Georgia,serif;
        font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
   .wrap{max-width:780px;margin:0 auto;padding:0 1.3rem}
-  a{color:#a8330d;text-decoration:none} a:hover{text-decoration:underline}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
   header.hero{background:
-      radial-gradient(1200px 380px at 50% -120px, #fbe6c9 0%, rgba(251,230,201,0) 70%),
-      linear-gradient(170deg,#fdf4e2 0%, #fbeed9 55%, #fdfaf4 100%);
-      border-bottom:1px solid #efe2cb;text-align:center;padding:3.6rem 1.3rem 2.7rem}
-  .sanskrit{font-family:'Noto Serif Devanagari',serif;color:#bd8a2d;font-size:1.35rem;letter-spacing:.03em;margin:0 0 .35rem}
-  h1{font-size:3.3rem;line-height:1;margin:.1rem 0 .5rem;font-weight:700;color:#7a1f0d;letter-spacing:-.02em}
-  .tag{font-size:1.22rem;font-style:italic;color:#5c5145;margin:.2rem auto 1.1rem;max-width:32em}
-  .by{color:#6d6256;font-size:1rem;margin:0 0 1.4rem}
+      radial-gradient(1200px 400px at 50% -130px, #c7e9ef 0%, rgba(199,233,239,0) 70%),
+      linear-gradient(170deg,#e4f2f4 0%, #ecf4f3 55%, #f2f7f8 100%);
+      border-bottom:1px solid #d3e6e9;text-align:center;padding:3.6rem 1.3rem 2.7rem}
+  .sanskrit{font-family:'Noto Serif Devanagari',serif;color:var(--indigo);font-size:1.35rem;letter-spacing:.03em;margin:0 0 .35rem}
+  h1{font-size:3.3rem;line-height:1;margin:.1rem 0 .5rem;font-weight:700;color:var(--accent-dk);letter-spacing:-.02em}
+  .tag{font-size:1.22rem;font-style:italic;color:#4a5c62;margin:.2rem auto 1.1rem;max-width:32em}
+  .by{color:var(--soft);font-size:1rem;margin:0 0 1.4rem}
   .pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:.4rem}
-  .pill{display:inline-block;padding:.42rem .95rem;border:1px solid #e0cfa8;border-radius:999px;
-        background:rgba(255,255,255,.6);color:#7a1f0d;font-size:.95rem;font-weight:500;transition:all .15s ease}
-  .pill:hover{background:#a8330d;color:#fff;border-color:#a8330d;text-decoration:none}
-  .pill.primary{background:#a8330d;color:#fff;border-color:#a8330d}
-  .pill.primary:hover{background:#7a1f0d;border-color:#7a1f0d}
+  .pill{display:inline-block;padding:.42rem .95rem;border:1px solid #b9dce1;border-radius:999px;
+        background:rgba(255,255,255,.65);color:var(--accent-dk);font-size:.95rem;font-weight:500;transition:all .15s ease}
+  .pill:hover{background:var(--accent);color:#fff;border-color:var(--accent);text-decoration:none}
+  .pill.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .pill.primary:hover{background:var(--accent-dk);border-color:var(--accent-dk)}
 
-  section{padding:2.6rem 0} section + section{border-top:1px solid #f1e9da}
-  h2{font-family:'Spectral',serif;font-size:.92rem;text-transform:uppercase;letter-spacing:.14em;color:#a8330d;font-weight:600;margin:0 0 .3rem}
-  h2 + .lead{color:#6d6256;margin:.1rem 0 1.3rem;font-style:italic}
+  section{padding:2.6rem 0} section + section{border-top:1px solid #e5eff1}
+  h2{font-family:'Spectral',serif;font-size:.92rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:600;margin:0 0 .3rem}
+  h2 + .lead{color:var(--soft);margin:.1rem 0 1.3rem;font-style:italic}
   p{margin:.7rem 0}
 
   .steps{display:grid;grid-template-columns:1fr;gap:1rem}
-  .step{background:#fff;border:1px solid #ece2d2;border-radius:12px;padding:1.05rem 1.2rem;
-        box-shadow:0 6px 18px -16px rgba(0,0,0,.35);display:flex;gap:1rem;align-items:flex-start}
-  .num{flex:0 0 auto;width:2rem;height:2rem;border-radius:999px;background:#a8330d;color:#fff;
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.05rem 1.2rem;
+        box-shadow:0 6px 18px -16px rgba(10,75,94,.4);display:flex;gap:1rem;align-items:flex-start}
+  .num{flex:0 0 auto;width:2rem;height:2rem;border-radius:999px;background:var(--accent);color:#fff;
        display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1rem}
-  .step h3{margin:.1rem 0 .25rem;font-size:1.12rem;color:#7a1f0d;font-weight:600}
-  .step p{margin:.1rem 0;font-size:1rem;color:#4a4136}
-  .feat{color:#4a4136;font-size:1.03rem}
+  .step h3{margin:.1rem 0 .25rem;font-size:1.12rem;color:var(--accent-dk);font-weight:600}
+  .step p{margin:.1rem 0;font-size:1rem;color:#3a4a50}
+  .feat{color:#3a4a50;font-size:1.03rem}
   .feat li{margin:.4rem 0}
-  .demo{border:1px solid #ece2d2;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px -18px rgba(122,31,13,.35)}
+  .demo{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px -18px rgba(14,116,144,.4)}
   .demo iframe{display:block;width:100%;height:940px;border:0}
-  footer{border-top:1px solid #efe2cb;text-align:center;color:#8a7e6f;font-size:.92rem;padding:2rem 1.3rem 2.6rem}
-  .note{font-size:.9rem;color:#8a7e6f;margin:.7rem 0 0}
+  footer{border-top:1px solid #d3e6e9;text-align:center;color:var(--soft);font-size:.92rem;padding:2rem 1.3rem 2.6rem}
+  .note{font-size:.9rem;color:var(--soft);margin:.7rem 0 0}
 </style>
 </head>
 <body>
