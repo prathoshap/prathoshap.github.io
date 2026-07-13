@@ -49,9 +49,8 @@
   .step p{margin:.1rem 0;font-size:1rem;color:#4a4136}
   .feat{color:#4a4136;font-size:1.03rem}
   .feat li{margin:.4rem 0}
-  .cta{text-align:center;padding:2.4rem 0}
-  .cta .pill{font-size:1.1rem;padding:.7rem 1.7rem}
-  .devline{font-family:'Noto Serif Devanagari',serif;color:#7a1f0d;font-size:1.15rem;line-height:1.9;margin:.4rem 0}
+  .demo{border:1px solid #ece2d2;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 30px -18px rgba(122,31,13,.35)}
+  .demo iframe{display:block;width:100%;height:940px;border:0}
   footer{border-top:1px solid #efe2cb;text-align:center;color:#8a7e6f;font-size:.92rem;padding:2rem 1.3rem 2.6rem}
   .note{font-size:.9rem;color:#8a7e6f;margin:.7rem 0 0}
 </style>
@@ -64,7 +63,7 @@
      śloka, then chant along and get instant per-syllable feedback.</p>
   <p class="by">Prof. Prathosh A P · Indian Institute of Science, Bengaluru</p>
   <div class="pills">
-    <a class="pill primary" id="launch" href="#" target="_blank" rel="noopener">Launch the app ↗</a>
+    <a class="pill primary" href="#try">Try it ↓</a>
     <a class="pill" href="https://github.com/prathoshap/sushrota-sanskrit-asr" target="_blank" rel="noopener">GitHub ↗</a>
     <a class="pill" href="https://huggingface.co/prathoshap/sushrota-sanskrit-asr" target="_blank" rel="noopener">ASR model ↗</a>
     <a class="pill" href="https://prathosh.in/vagdhenu/" target="_blank" rel="noopener">Vāgdhenu (TTS) ↗</a>
@@ -72,6 +71,13 @@
 </header>
 
 <div class="wrap">
+
+  <section id="try">
+    <h2>Live demo</h2>
+    <p class="lead">Paste a śloka, hear the metre-aware chant, and recite — right here.</p>
+    <div class="demo"><iframe id="demoframe" src="" allow="microphone; autoplay" title="Vāgbodhinī"></iframe></div>
+    <p class="note">Use a microphone and allow access when prompted. Best on a laptop or desktop.</p>
+  </section>
 
   <section>
     <h2>What it is</h2>
@@ -116,12 +122,6 @@
     </ul>
   </section>
 
-  <section class="cta">
-    <div class="devline">वाचं बोधयति इति वाग्बोधिनी</div>
-    <a class="pill primary" id="launch2" href="#" target="_blank" rel="noopener">Launch the app ↗</a>
-    <p class="note" id="launchnote"></p>
-  </section>
-
 </div>
 
 <footer>
@@ -134,8 +134,7 @@
 <script>
   // Live app endpoint — update this one line when the app moves to a durable URL.
   var APP_URL = "https://plasma-roommates-capitol-sharing.trycloudflare.com";
-  document.getElementById("launch").href = APP_URL;
-  document.getElementById("launch2").href = APP_URL;
+  document.getElementById("demoframe").src = APP_URL;
 </script>
 </body>
 </html>
