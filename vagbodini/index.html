@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vāgbodhinī — A Vṛtta-Aware Sanskrit Chant Tutor</title>
+<meta name="description" content="Vāgbodhinī: hear the metre-aware reference chant of any śloka and get instant per-syllable feedback as you recite. Prof. Prathosh A P, Indian Institute of Science, Bengaluru.">
+<meta property="og:title" content="Vāgbodhinī — Sanskrit Chant Tutor">
+<meta property="og:description" content="A vṛtta (metre) aware Sanskrit chanting tutor: reference chant synthesis + per-syllable ASR feedback. Any script.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#2a2018; --soft:#6d6256; --accent:#a8330d; --gold:#bd8a2d;
+         --line:#ece2d2; --bg:#fdfaf4; --card:#ffffff; }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:#2a2018;font-family:'Spectral',Georgia,serif;
+       font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:0 1.3rem}
+  a{color:#a8330d;text-decoration:none} a:hover{text-decoration:underline}
+
+  header.hero{background:
+      radial-gradient(1200px 380px at 50% -120px, #fbe6c9 0%, rgba(251,230,201,0) 70%),
+      linear-gradient(170deg,#fdf4e2 0%, #fbeed9 55%, #fdfaf4 100%);
+      border-bottom:1px solid #efe2cb;text-align:center;padding:3.6rem 1.3rem 2.7rem}
+  .sanskrit{font-family:'Noto Serif Devanagari',serif;color:#bd8a2d;font-size:1.35rem;letter-spacing:.03em;margin:0 0 .35rem}
+  h1{font-size:3.3rem;line-height:1;margin:.1rem 0 .5rem;font-weight:700;color:#7a1f0d;letter-spacing:-.02em}
+  .tag{font-size:1.22rem;font-style:italic;color:#5c5145;margin:.2rem auto 1.1rem;max-width:32em}
+  .by{color:#6d6256;font-size:1rem;margin:0 0 1.4rem}
+  .pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:.4rem}
+  .pill{display:inline-block;padding:.42rem .95rem;border:1px solid #e0cfa8;border-radius:999px;
+        background:rgba(255,255,255,.6);color:#7a1f0d;font-size:.95rem;font-weight:500;transition:all .15s ease}
+  .pill:hover{background:#a8330d;color:#fff;border-color:#a8330d;text-decoration:none}
+  .pill.primary{background:#a8330d;color:#fff;border-color:#a8330d}
+  .pill.primary:hover{background:#7a1f0d;border-color:#7a1f0d}
+
+  section{padding:2.6rem 0} section + section{border-top:1px solid #f1e9da}
+  h2{font-family:'Spectral',serif;font-size:.92rem;text-transform:uppercase;letter-spacing:.14em;color:#a8330d;font-weight:600;margin:0 0 .3rem}
+  h2 + .lead{color:#6d6256;margin:.1rem 0 1.3rem;font-style:italic}
+  p{margin:.7rem 0}
+
+  .steps{display:grid;grid-template-columns:1fr;gap:1rem}
+  .step{background:#fff;border:1px solid #ece2d2;border-radius:12px;padding:1.05rem 1.2rem;
+        box-shadow:0 6px 18px -16px rgba(0,0,0,.35);display:flex;gap:1rem;align-items:flex-start}
+  .num{flex:0 0 auto;width:2rem;height:2rem;border-radius:999px;background:#a8330d;color:#fff;
+       display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1rem}
+  .step h3{margin:.1rem 0 .25rem;font-size:1.12rem;color:#7a1f0d;font-weight:600}
+  .step p{margin:.1rem 0;font-size:1rem;color:#4a4136}
+  .feat{color:#4a4136;font-size:1.03rem}
+  .feat li{margin:.4rem 0}
+  .cta{text-align:center;padding:2.4rem 0}
+  .cta .pill{font-size:1.1rem;padding:.7rem 1.7rem}
+  .devline{font-family:'Noto Serif Devanagari',serif;color:#7a1f0d;font-size:1.15rem;line-height:1.9;margin:.4rem 0}
+  footer{border-top:1px solid #efe2cb;text-align:center;color:#8a7e6f;font-size:.92rem;padding:2rem 1.3rem 2.6rem}
+  .note{font-size:.9rem;color:#8a7e6f;margin:.7rem 0 0}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="sanskrit">॥ वाग्बोधिनी ॥</div>
+  <h1>Vāgbodhinī</h1>
+  <p class="tag">A vṛtta (metre) aware Sanskrit <b>chant tutor</b> — hear the correct chant of any
+     śloka, then chant along and get instant per-syllable feedback.</p>
+  <p class="by">Prof. Prathosh A P · Indian Institute of Science, Bengaluru</p>
+  <div class="pills">
+    <a class="pill primary" id="launch" href="#" target="_blank" rel="noopener">Launch the app ↗</a>
+    <a class="pill" href="https://github.com/prathoshap/sushrota-sanskrit-asr" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="pill" href="https://huggingface.co/prathoshap/sushrota-sanskrit-asr" target="_blank" rel="noopener">ASR model ↗</a>
+    <a class="pill" href="https://prathosh.in/vagdhenu/" target="_blank" rel="noopener">Vāgdhenu (TTS) ↗</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>What it is</h2>
+    <p class="lead">Not transcription — a practice companion.</p>
+    <p>Vāgbodhinī helps you learn to chant Sanskrit correctly. You paste a śloka in <b>any script</b>,
+       it splits the verse into pādas by metre and synthesises the <b>correct chant</b> with our
+       metre-aware TTS (<a href="https://prathosh.in/vagdhenu/">Vāgdhenu</a>). You chant along, and a
+       Sanskrit speech-recognition model scores <b>each syllable</b> — showing what landed and what
+       to work on. Because the target text is known, the tool <i>verifies</i> your recitation rather
+       than guessing it, so it stays reliable even where open transcription is hard.</p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div>
+        <h3>Paste a śloka — any script</h3>
+        <p>Devanāgarī, Kannada, Telugu, Tamil, Malayalam, Grantha, or Roman (IAST/HK/ITRANS). The
+           script is auto-detected and echoed back so you can confirm.</p></div></div>
+      <div class="step"><div class="num">2</div><div>
+        <h3>Hear the reference chant</h3>
+        <p>The metre (vṛtta) is detected and the verse is split into <b>pāda (¼) · ardha (½) · full</b>.
+           Each is chanted by Vāgdhenu — learn quarter by quarter, then the whole verse.</p></div></div>
+      <div class="step"><div class="num">3</div><div>
+        <h3>Chant, and get per-syllable feedback</h3>
+        <p>Record your recitation; every akshara is marked correct / to-fix / unclear, with a match
+           score. Choose <b>Be-strict</b> or <b>Be-liberal</b>. Play your chant against the reference,
+           and overrule the tool when you know you're right.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Under the hood</h2>
+    <ul class="feat">
+      <li><b>Vāgdhenu</b> — a vṛtta-aware śloka-to-chant TTS renders the metre-conditioned reference.</li>
+      <li><b>Su-śrotā ASR</b> — an IndicConformer-CTC finetuned for śāstric/recitational Sanskrit
+          (~6% CER on clean chant), released on <a href="https://huggingface.co/prathoshap/sushrota-sanskrit-asr">Hugging Face</a>.</li>
+      <li><b>Robust scoring</b> — akshara-level verification with decode-consensus: the tool abstains
+          ("unclear") rather than confidently mis-flag a syllable it heard correctly.</li>
+      <li><b>Open</b> — code and the full experiment report are on
+          <a href="https://github.com/prathoshap/sushrota-sanskrit-asr">GitHub</a>.</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <div class="devline">वाचं बोधयति इति वाग्बोधिनी</div>
+    <a class="pill primary" id="launch2" href="#" target="_blank" rel="noopener">Launch the app ↗</a>
+    <p class="note" id="launchnote"></p>
+  </section>
+
+</div>
+
+<footer>
+  Vāgbodhinī · Prof. Prathosh A P · Indian Institute of Science, Bengaluru<br>
+  <a href="https://github.com/prathoshap/sushrota-sanskrit-asr">GitHub</a> ·
+  <a href="https://huggingface.co/prathoshap/sushrota-sanskrit-asr">ASR model</a> ·
+  <a href="https://prathosh.in/vagdhenu/">Vāgdhenu TTS</a>
+</footer>
+
+<script>
+  // Live app endpoint — update this one line when the app moves to a durable URL.
+  var APP_URL = "https://plasma-roommates-capitol-sharing.trycloudflare.com";
+  document.getElementById("launch").href = APP_URL;
+  document.getElementById("launch2").href = APP_URL;
+</script>
+</body>
+</html>
