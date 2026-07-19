@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanskrit AI at IISc — an end-to-end Sanskrit speech stack by Dr. Prathosh A.P.: Vāgdhenu (chant TTS), Su-śrotā (ASR), and Vāgbodhinī (a learning app), with a data flywheel that improves the models.">
+  <title>Sanskrit AI | Dr. Prathosh A.P.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .sai-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin:1.5rem 0}
+    .sai-card{background:#fff;border:1px solid #e7e2d8;border-radius:14px;padding:1.4rem 1.5rem;
+              box-shadow:0 8px 24px -20px rgba(0,0,0,.4)}
+    .sai-card .sai-kind{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#a8330d;font-weight:600}
+    .sai-card h3{margin:.25rem 0 .1rem;font-size:1.5rem}
+    .sai-card .sai-dev{font-family:'Noto Serif Devanagari',serif;color:#8a7a5c;font-size:1.05rem;margin:0 0 .5rem}
+    .sai-card p{margin:.4rem 0 .9rem;color:#463f36}
+    .sai-links{display:flex;flex-wrap:wrap;gap:.5rem}
+    .sai-links a{display:inline-block;padding:.4rem .9rem;border:1px solid #d9cdb5;border-radius:999px;
+                 font-size:.9rem;font-weight:500;color:#7a1f0d;text-decoration:none;transition:.15s}
+    .sai-links a:hover{background:#a8330d;color:#fff;border-color:#a8330d}
+    .sai-links a.primary{background:#a8330d;color:#fff;border-color:#a8330d}
+    .sai-links a.primary:hover{background:#7a1f0d;border-color:#7a1f0d}
+    .sai-flow{background:#fbf6ec;border:1px solid #efe2cb;border-radius:14px;padding:1.3rem 1.5rem;margin:1rem 0}
+    .sai-flow b{color:#7a1f0d}
+    .sai-highlight{border-left:4px solid #a8330d;padding:.4rem 0 .4rem 1.1rem;margin:1.2rem 0;color:#463f36}
+    @media(min-width:760px){ .sai-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Prathosh A.P.</a>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="teaching.html">Teaching &amp; Service</a>
+      <a href="group.html">Lab</a>
+      <a href="cce-genai.html">CCE-GenAI</a>
+      <a href="sanskrit-ai.html" class="active">Sanskrit AI</a>
+      <a href="https://scholar.google.com/citations?user=OEwV4bsAAAAJ" target="_blank">Scholar ↗</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Sanskrit AI</div>
+    <h1>Sanskrit AI</h1>
+    <p>An end-to-end Sanskrit speech stack &nbsp;·&nbsp; synthesis, recognition, and a learning tool that closes the loop</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<section class="section">
+  <div class="container">
+
+    <div class="info-banner">
+      <span>Sanskrit is dense with sandhi, retroflexion, aspiration contrasts, and metre — features
+      that off-the-shelf speech models handle poorly. This effort builds a purpose-made Sanskrit
+      speech stack: a meter-aware <b>text-to-speech</b> system, a scholar-grade <b>speech recognizer</b>,
+      and a <b>learning app</b> that puts them together to help people chant and recite correctly —
+      while quietly collecting consented data that improves the models.</span>
+    </div>
+
+    <span class="section-label">Three systems</span>
+    <h2 class="section-title" style="margin-bottom:.5rem">The stack</h2>
+
+    <div class="sai-grid">
+
+      <div class="sai-card">
+        <div class="sai-kind">Text-to-Speech</div>
+        <h3>Vāgdhenu</h3>
+        <div class="sai-dev">॥ वाग्धेनु ॥</div>
+        <p>A vṛtta (metre) aware śloka-to-chant TTS. It detects the metre of a verse and renders it as
+        a faithful chanted <em>pārāyaṇa</em> recitation — with the retroflex series, the three sibilants,
+        aspiration, visarga sandhi, and homorganic anusvāra all kept distinct. Trained on a
+        purpose-recorded single-speaker Sanskrit chant corpus; expert MOS ≈ 4.6. It has already produced
+        chant corpora at scale (Mahābhārata Tātparya Nirṇaya, the full Śrīmad Bhāgavatam).</p>
+        <div class="sai-links">
+          <a class="primary" href="https://prathosh.in/vagdhenu/" target="_blank">Live demo ↗</a>
+          <a href="https://github.com/prathoshap/vagdhenu" target="_blank">GitHub ↗</a>
+          <a href="https://huggingface.co/prathoshap/vagdhenu" target="_blank">Weights ↗</a>
+        </div>
+      </div>
+
+      <div class="sai-card">
+        <div class="sai-kind">Speech Recognition</div>
+        <h3>Su-śrotā</h3>
+        <div class="sai-dev">॥ सु-श्रोता ॥</div>
+        <p>A Sanskrit speech recognizer tuned for śāstric and recitational Sanskrit, where general models
+        break down. Built on IndicConformer-CTC and continually improved with consented user data — on
+        real, in-the-wild audio it now recognizes far better than the studio-trained baseline. Served as
+        a live dictation / transcription tool with in-line correction, and released open-source with a
+        full report of the experiments (including the ones that didn't work).</p>
+        <div class="sai-links">
+          <a class="primary" href="https://prathosh.in/sushrotaa/" target="_blank">Live tool ↗</a>
+          <a href="https://github.com/prathoshap/sushrota-sanskrit-asr" target="_blank">GitHub ↗</a>
+          <a href="https://huggingface.co/prathoshap/sushrota-sanskrit-asr" target="_blank">Model ↗</a>
+        </div>
+      </div>
+
+      <div class="sai-card">
+        <div class="sai-kind">Learning App</div>
+        <h3>Vāgbodhinī</h3>
+        <div class="sai-dev">॥ वाग्बोधिनी ॥</div>
+        <p>A Sanskrit chant &amp; prose tutor that combines the two. Paste any verse in any script,
+        hear its metre-aware reference chant (from Vāgdhenu), then recite along — the recognizer
+        (Su-śrotā) scores <em>every syllable</em> and shows what to fix. Because the target text is known,
+        the tool <em>verifies</em> your recitation rather than guessing it, so it stays reliable even where
+        open transcription is hard. For classical (laukika) Sanskrit.</p>
+        <div class="sai-links">
+          <a class="primary" href="https://prathosh.in/vagbodhini/" target="_blank">Try it ↗</a>
+          <a href="https://github.com/prathoshap/sushrota-sanskrit-asr" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">How they connect</span>
+    <h2 class="section-title" style="margin-bottom:1rem">One system, a closed loop</h2>
+    <div class="sai-flow">
+      <p style="margin:.2rem 0"><b>Vāgdhenu</b> synthesises the correct chant of a verse &nbsp;→&nbsp;
+      <b>Vāgbodhinī</b> plays it and has you recite &nbsp;→&nbsp;
+      <b>Su-śrotā</b> listens and scores your recitation, syllable by syllable &nbsp;→&nbsp;
+      every consented recording (and every human correction) is collected and used to
+      <b>improve the shared recognizer</b> — which makes the scoring better, which yields cleaner data.</p>
+    </div>
+    <div class="sai-highlight">
+      <b>The flywheel works.</b> The recognizer was only saturated on clean studio audio; on real
+      in-the-wild user audio it had large headroom. A week of consented recordings, plus a
+      domain-balanced retrain, cut real-world error by about a third
+      (<b>character error 24% → 16%, word error 86% → 34%</b>) with no loss on the studio benchmarks.
+      Both live tools now serve the same continually-improving core model.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Dr. Prathosh A.P.</div>
+      <div class="footer-info">Assistant Professor, ECE · Indian Institute of Science, Bengaluru 560012</div>
+      <div class="footer-info"><a href="mailto:prathosh@iisc.ac.in">prathosh@iisc.ac.in</a></div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="teaching.html">Teaching &amp; Service</a>
+      <a href="group.html">Lab</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
